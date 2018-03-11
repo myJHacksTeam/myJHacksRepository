@@ -7,6 +7,7 @@ import numpy as np
 from pprint import pprint
 from concurrent.futures import ThreadPoolExecutor
 import updater
+import re
 def convert_distortion_maps(image):
 
     distortion_length = image.distortion_width * image.distortion_height
@@ -79,8 +80,10 @@ def run():
     executor = ThreadPoolExecutor(max_workers = 1)
     id_ = ''
     with open('id.txt','r+') as f:
-        id_ = f.readlines()
+        id_ = f.readline()
 
+    id_ = re.search(r'(\d+)',id_).group(0)
+    print('the real id is',id_)
     # Set the baseline
     print('Calibrating, please wait...')
     while counter < 0:
