@@ -7,5 +7,5 @@ if(!$result) {
   die("Id not found");
 }
 $row = $result->fetch_row();
-echo $row["id"];
+echo $row[0];
 ?>
