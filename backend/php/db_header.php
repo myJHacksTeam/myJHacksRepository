@@ -1,7 +1,7 @@
 <?php
 $server="localhost";
 $username="user";
-$dbname="Jhacks";
+$dbname="JHacks";
 $password="password";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
