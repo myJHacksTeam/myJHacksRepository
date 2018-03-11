@@ -31,7 +31,7 @@
             </tr>
             <?php
             include("backend/php/db_header.php");
-            $conn = new mysqli($servername, $username, $password, $dbname);
+            $conn = new mysqli($server, $username, $password, $dbname);
             if($conn->connect_error) {
               echo "<tr class=\"leaderboard__item\"><td colspan=\"4\">Failed to connect to database</td></tr>";
             }
