@@ -33,11 +33,13 @@ def clear_all_stats(id_ = None):	# DEBUG ONLYs
 def init_bin(location = None, nickname=None):
 	 
 	r = requests.get('http://10.205.255.121/backend/php/max.php')
+	print(r.text)
 	id_ = r.text
 	if id_ == 'Id not found':
 		raise ValueError
-		
+
 	id_ = int(id_)+1
+
 
 	if not location:
 		location = str(time.time())
