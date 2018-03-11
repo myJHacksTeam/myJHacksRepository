@@ -54,12 +54,14 @@
               }
             }
             ?>
+            <!--
             <tr class="leaderboard__item">
                 <td>1</td>
                 <td>Caroline Hall 1101-1110</td>
                 <td>5,302</td>
                 <td><a href="#">Map</a></td>
             </tr>
+            LOLWUT -->
         </table>
     </div>
 </body>
