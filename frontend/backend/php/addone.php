@@ -1,6 +1,6 @@
 <?php
 require("db_header.php");
-$sql = "SELECT FIRST(current_value) FROM Trashcan WHERE id = " . $_POST["id"];
+$sql = "SELECT current_value FROM Trashcan WHERE id = " . $_POST["id"];
 echo $sql;
 $result=$conn->query($sql);
 if(!$result) {

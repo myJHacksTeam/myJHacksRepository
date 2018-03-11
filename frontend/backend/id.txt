@@ -1,1 +1,1 @@
-You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '(id) FROM Trashcan WHERE nickname = 'vingtintiv'' at line 1Id not found
+13
