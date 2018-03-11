@@ -59,7 +59,7 @@ def init_bin(location, nickname):
 
 	return initreq
 
-def add_one(id_ = None):
+def addone(id_ = None):
 	if not id_:
 		raise ValueError
 
@@ -68,5 +68,7 @@ def add_one(id_ = None):
 	}
 
 	url = 'http://10.205.255.121/backend/php/addone.php'
-	return requests.post(url=url,data=data)
+	req = requests.post(url=url,data=data)
+	print(req.text)
+	return req
 	
