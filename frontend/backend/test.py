@@ -63,12 +63,13 @@ def undistort(image, coordinate_map, coefficient_map, width, height):
                              cv2.INTER_LINEAR)
     return destination
 
-def run(controller = None):
+def run():
 
-    if(not controller):
-        controller = Leap.Controller()
-        time.sleep(2)
-
+    
+    controller = Leap.Controller()
+    time.sleep(2)
+    print(controller.is_connected)
+    controller.set_policy_flags(Leap.Controller.POLICY_IMAGES)
     counter = -20
     maps_initialized = False
     previous_sum = 0
@@ -104,6 +105,7 @@ def run(controller = None):
 
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 break
+        #print(counter)
 
     baseline /= 600
     print('Done!')
@@ -157,7 +159,8 @@ def main():
     print(controller.is_connected)
     controller.set_policy_flags(Leap.Controller.POLICY_IMAGES)
     try:
-        run(controller)
+        #run(controller)
+        run()
     except KeyboardInterrupt:
         sys.exit(0)
 
