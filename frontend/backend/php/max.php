@@ -6,6 +6,6 @@ if(!$result) {
 	echo $conn->error;
   die("Id not found");
 }
-$row = $result->fetch_object();
+$row = fetch_object($result);
 echo $row->id;
 ?>
