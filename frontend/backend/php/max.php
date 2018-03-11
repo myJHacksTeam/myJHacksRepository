@@ -6,6 +6,6 @@ if(!$result) {
 	echo $conn->error;
   die("Id not found");
 }
-$row = mysqli_fetch_row($result);
-echo $row[0];
+$row = $result->fetch_object()
+echo $row->id;
 ?>
