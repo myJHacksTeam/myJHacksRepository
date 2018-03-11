@@ -18,43 +18,41 @@ function initMap() {
 
 }
 
+var locations = [
+  [38.983515, -76.945702], //Caroline Hall, 1106-1130
+  [38.983192, -76.945544], //Frederick Hall, 237-245
+  [38.982764, -76.948741], //UMD Hillel
+  [38.982976, -76.946987], //Van Munching, East Entrance
+  [38.983736, -76.947414], //Van Munching, North Entrance
+  [38.985248, -76.946095], //Queen Anne, Main Entrance
+  [38.986001, -76.942559], //McKeldin Mall, Center
+  [38.987305, -76.941936], //ESJ, Room 0224
+]
+
+
+
+var gradient = [
+  'rgba(255, 0, 0, 0)',
+  'rgba(255, 0, 0, 1)'
+]
 
 function eqfeed_callback(results) {
   var heatmapData = [];
 
-  var coords = [38.9828, -76.9483];
+  for (var i = 0; i < locations.length; i++) {
+  var coords = locations[i];
   var latLng = new google.maps.LatLng(coords[0], coords[1]);
-  
+  heatmapData.push(latLng);
+	}
 
-	var magnitude = 0.000001;
-  var weightedLoc = {
-  	location: latLng,
-		weight: Math.pow(2, magnitude)
-	};
-	heatmapData.push(weightedLoc);
+  var heatmap = new google.maps.visualization.HeatmapLayer({
+    data: heatmapData,
+    dissipating: true,
+    map: map,
+    radius: 20
+  });
 
-
-	var heatmap = new google.maps.visualization.HeatmapLayer({
-  	data: heatmapData,
-  	dissipating: false,
-  	map: map,
-    radius: 1
-	});
-  
-  var gradient = [
-    'rgba(255, 0, 0, 0)',
-    'rgba(255, 0, 0, 0.1)',
-    'rgba(255, 0, 0, 0.2)',
-    'rgba(255, 0, 0, 0.3)',
-    'rgba(255, 0, 0, 0.4)',
-    'rgba(255, 0, 0, 0.5)',
-    'rgba(255, 0, 0, 0.6)',
-    'rgba(255, 0, 0, 0.7)',
-    'rgba(255, 0, 0, 0.8)',
-    'rgba(255, 0, 0, 0.9)',
-    'rgba(255, 0, 0, 1)'
-  ]
   heatmap.set('gradient', gradient);
-  
-  
+
+
 }
