@@ -103,7 +103,7 @@ def run(controller = None):
     baseline /= 600
     print('Done!')
     print('Baseline: {:,}'.format(baseline))
-
+    onspike = False
     while(True):
         frame = controller.frame()
         #print(frame.current_frames_per_second)
@@ -125,10 +125,14 @@ def run(controller = None):
             #pprint(image.data_pointer)
             if counter % 1 == 0:
                 previous_sum = current_sum
-                current_sum = sum([image.data[i] for i in range(0,image.width*image.height,10)])
+                current_sum = sum([image.data[i] for i in range(0,image.width*image.height,50)])
                 # print('{:,}'.format(current_sum), '|', '{:,}'.format(current_sum - previous_sum))
-                if(abs(current_sum - previous_sum) > 1.5 * baseline):
+                print(abs(current_sum-previous_sum))
+                if(abs(current_sum - previous_sum) > 1.25 * baseline) and previous_sum != 0 and not onspike:
                     print('Trashed\n')
+                    onspike = True
+                elif not abs(current_sum - previous_sum) > 1.25 * baseline:
+                    onspike = False
                 counter = 0
 
             # ba = bytearray(image.data)
