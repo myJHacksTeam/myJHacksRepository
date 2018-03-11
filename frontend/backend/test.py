@@ -100,8 +100,10 @@ def run():
             undistorted_right = undistort(image, right_coordinates, right_coefficients, 400, 400)
 
 
-            baseline += sum([image.data[i] for i in range(0,image.width*image.height,30)])
-            #print('Counter:', counter, '| FPS:', frame.current_frames_per_second)
+            newsum = sum([image.data[i] for i in range(0,image.width*image.height,50)])
+            #print('Counter:', counter, '| Val:', newsum)
+            if counter >= -17:
+                baseline += newsum
             # ba = bytearray(image.data)
             # print(sum(ba))
             counter += 1
@@ -112,9 +114,10 @@ def run():
                 break
         #print(counter)
 
-    baseline /= 600
+    baseline /= 17
+    mult = 1.03
     print('Done!')
-    print('Baseline: {:,}'.format(baseline))
+    print('Baseline: {:,}, Threashhold: {}'.format(baseline,baseline*mult))
     onspike = False
     while(True):
         frame = controller.frame()
@@ -139,20 +142,20 @@ def run():
                 previous_sum = current_sum
                 current_sum = sum([image.data[i] for i in range(0,image.width*image.height,50)])
                 # print('{:,}'.format(current_sum), '|', '{:,}'.format(current_sum - previous_sum))
-                print(abs(current_sum-previous_sum))
-                if(abs(current_sum - previous_sum) > 1.25 * baseline) and previous_sum != 0 and not onspike:
+                print(abs(current_sum))#-previous_sum))
+                if(abs(current_sum) >  mult * baseline) and previous_sum != 0 and not onspike:
                     print('Trashed!')
                     executor.submit(updater.addone, id_)
                     onspike = True
-                elif not abs(current_sum - previous_sum) > 1.25 * baseline:
+                elif not abs(current_sum) > mult * baseline:
                     onspike = False
                 counter = 0
 
             # ba = bytearray(image.data)
             # print(sum(ba))
             counter += 1
-            # cv2.imshow('Left Camera', undistorted_left)
-            # cv2.imshow('Right Camera', undistorted_right)
+            cv2.imshow('Left Camera', undistorted_left)
+            cv2.imshow('Right Camera', undistorted_right)
 
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 break
