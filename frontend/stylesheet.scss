@@ -1,10 +1,12 @@
 @import 'reset';
 
 $primary: #00284a;
+$secondary: #4aa3ce;
+$grey: #cecece;
 
 body {
     font-family: 'Open Sans', sans-serif;
-    background: #64aacc;
+    background: #ececec;
     color: white;
 }
 
@@ -17,7 +19,9 @@ h2, h3, h4, h5, h6 {
 }
 
 .header {
-    margin: 10px 5px 70px;
+    background-color: #24292e;
+    margin-bottom: 50px;
+    padding: 10px 5px;
     text-align: center;
     display: flex;
     flex-flow: column;
@@ -25,30 +29,30 @@ h2, h3, h4, h5, h6 {
 
     &--title {
         font-size: 70px;
-        color: $primary;
+        color: $secondary;
     }
 
     &--separator {
         width: 800px;
         height: 1px;
         margin: 30px auto 20px;
-        background-color: #353535;
+        background-color: $grey;
     }
 
     &--tagline {
-        color: #353535;
+        color: $grey;
         font-size: 30px;
-
+        margin-bottom: 10px;
     }
 }
 
 .title {
     &--re {
-        color: maroon;
+        color: #a00000;
     }
 
     &--weak {
-        color: white;
+        color: $grey;
         font-size: 50px;
     }
 }
@@ -62,7 +66,7 @@ h2, h3, h4, h5, h6 {
 
     &-title {
         text-align: center;
-        margin: 0 5px 10px;
+        margin: 0 5px 40px;
         font-size: 60px;
         color: $primary;
     }
@@ -76,11 +80,15 @@ h2, h3, h4, h5, h6 {
         padding: 25px;
         text-align: center;
         color: white;
-        background-color: #4CAF50;
+        background-color: $secondary;
         font-weight: 700;
     }
 
-    &__header td {
+    & tr:nth-child(even) td {
+        background-color: rgba(74, 163, 206, 0.65)
+    }
 
+    &__header td {
+        background-color: $primary;
     }
 }

@@ -47,30 +47,33 @@ table {
 
 body {
   font-family: 'Open Sans', sans-serif;
-  background: #64aacc;
+  background: #ececec;
   color: white; }
 
 .header {
-  margin: 10px 5px 70px;
+  background-color: #24292e;
+  margin-bottom: 50px;
+  padding: 10px 5px;
   text-align: center;
   display: flex;
   flex-flow: column; }
   .header--title {
     font-size: 70px;
-    color: #00284a; }
+    color: #4aa3ce; }
   .header--separator {
     width: 800px;
     height: 1px;
     margin: 30px auto 20px;
-    background-color: #353535; }
+    background-color: #cecece; }
   .header--tagline {
-    color: #353535;
-    font-size: 30px; }
+    color: #cecece;
+    font-size: 30px;
+    margin-bottom: 10px; }
 
 .title--re {
-  color: maroon; }
+  color: #a00000; }
 .title--weak {
-  color: white;
+  color: #cecece;
   font-size: 50px; }
 
 .leaderboard {
@@ -82,7 +85,7 @@ body {
     flex-flow: column; }
   .leaderboard-title {
     text-align: center;
-    margin: 0 5px 10px;
+    margin: 0 5px 40px;
     font-size: 60px;
     color: #00284a; }
   .leaderboard td {
@@ -90,7 +93,11 @@ body {
     padding: 25px;
     text-align: center;
     color: white;
-    background-color: #4CAF50;
+    background-color: #4aa3ce;
     font-weight: 700; }
+  .leaderboard tr:nth-child(even) td {
+    background-color: rgba(74, 163, 206, 0.65); }
+  .leaderboard__header td {
+    background-color: #00284a; }
 
 /*# sourceMappingURL=stylesheet.css.map */
