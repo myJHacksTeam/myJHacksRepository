@@ -1,6 +1,7 @@
-import cv2, Leap, math, ctypes, time, sys, os
+import cv2, math, ctypes, time, sys, os
+import leap.Leap as Leap
 import numpy as np
-import Leap
+#import Leap
 from PIL import Image
 import numpy as np
 from pprint import pprint

@@ -5,4 +5,5 @@ $result=$conn->query($sql);
 if(!$result) {
   die("Id not found");
 }
+echo "stuff";
 ?>
