@@ -9,7 +9,7 @@ def update_current_weight(value = 0, id_ = None):
 	'value' : str(value),
 	'id' : str(id_)
 	}
-	url = '10.0.2.255/update.php'
+	url = 'http://10.0.2.255/update.php'
 	requests.post(url=url,data=data)
 
 
@@ -18,7 +18,7 @@ def start_new_collection(value = 0, id_ = None):
 	'value' : str(value),
 	'id' : str(id_)
 	}
-	url = '10.0.2.255/newcollection.php'
+	url = 'http://10.0.2.255/newcollection.php'
 	requests.post(url=url,data=data)
 	
 
@@ -27,7 +27,7 @@ def clear_all_stats(id_ = None):	# DEBUG ONLYs
 	data = {
 	'id' : str(id_)
 	}
-	url = '10.0.2.255/clear.php'
+	url = 'http://10.0.2.255/clear.php'
 	requests.post(url=url,data=data)
 	
 def init_bin(id_):
@@ -36,5 +36,5 @@ def init_bin(id_):
 	data = {
 	'id' : str(id_)
 	}
-	url = '10.0.2.255/initbin.php'
+	url = 'http://10.0.2.255/initbin.php'
 	requests.post(url=url,data=data)
