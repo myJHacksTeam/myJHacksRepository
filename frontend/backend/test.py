@@ -139,7 +139,7 @@ def run():
                 print(abs(current_sum-previous_sum))
                 if(abs(current_sum - previous_sum) > 1.25 * baseline) and previous_sum != 0 and not onspike:
                     print('Trashed!')
-                    executor.submit(updater.add_one, id_)
+                    executor.submit(updater.addone, id_)
                     onspike = True
                 elif not abs(current_sum - previous_sum) > 1.25 * baseline:
                     onspike = False
