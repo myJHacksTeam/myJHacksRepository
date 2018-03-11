@@ -30,14 +30,17 @@ def clear_all_stats(id_ = None):	# DEBUG ONLYs
 	url = 'http://10.205.255.121/backend/php/clear.php'
 	return requests.post(url=url,data=data)
 	
-def init_bin(id_ = None, location = None):
+def init_bin(id_ = None, location = None, nickname=None):
 	if not id_:
 		raise ValueError
 	if not location:
-		location = 'NULL'
+		location = str(time.time())
+	if not nickname:
+		nickname = str(time.time())
 	data = {
 	'id' : str(id_),
-	'location' : location
+	'location' : location,
+	'nickname' : nickname
 	}
 	url = 'http://10.205.255.121/backend/php/initbin.php'
 	return requests.post(url=url,data=data)
