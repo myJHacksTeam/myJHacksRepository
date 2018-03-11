@@ -4,6 +4,7 @@
     <link rel="stylesheet" type="text/css" href="stylesheet.css"  />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
     <link rel="icon" href="icon.png">
+    <meta http-equiv="refresh" content="5"/>
 </head>
 
 <body>
