@@ -42,14 +42,14 @@
                 echo "<tr class=\"leaderboard__item\"><td colspan=\"4\">The table is empty</td></tr>";
               }
               else {
-                for (i = 1; ;i++) {
+                for ($i = 1; ;$i++) {
                   if(!$row = $result->fetch_assoc()) {
                     break;
                   }
-                  echo "<tr class=\"leaderboard__item\"><td>#" . i . "</td>";
+                  echo "<tr class=\"leaderboard__item\"><td>#" . $i . "</td>";
                   echo "<td>" . $row["nickname"] . "</td>";
                   echo "<td>" . $row["total_value"] . "</td>";
-                  echo "<td><a class="map-link-row" href=\"#\">Map</a></td></tr>";"
+                  echo "<td><a class="map-link-row" href=\"#\">Map</a></td></tr>";
                 }
               }
             }
