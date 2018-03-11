@@ -6,8 +6,9 @@ DROP TABLE IF EXISTS Trashcan;
 
 CREATE TABLE Trashcan(id INT NOT NULL,
 	nickname varchar(255) UNIQUE,
-	value REAL,
+	current_value REAL,
 	location varchar(255),
+	total_value REAL DEFAULT 0,
 	PRIMARY KEY(id));
 CREATE TABLE State(tid INT NOT NULL,
 	state varchar(255) NOT NULL,
