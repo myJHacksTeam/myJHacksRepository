@@ -49,7 +49,7 @@
                   echo "<tr class=\"leaderboard__item\"><td>#" . $i . "</td>";
                   echo "<td>" . $row["nickname"] . "</td>";
                   echo "<td>" . $row["total_value"] . "</td>";
-                  echo "<td><a class="map-link-row" href=\"#\">Map</a></td></tr>";
+                  echo "<td><a class=\"map-link-row\" href=\"#\">Map</a></td></tr>";
                 }
               }
             }
