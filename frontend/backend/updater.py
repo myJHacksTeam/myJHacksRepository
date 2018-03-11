@@ -50,7 +50,7 @@ def init_bin(location, nickname):
 
 	idurl = 'http://reuniversity.org/backend/php/idbynickname.php'
 	idreq = requests.post(url=idurl,data=data)
-	print(idreq.text)
+	#print(idreq.text)
 	if idreq.text == 'Id not found':
 		raise ValueError
 	
@@ -70,6 +70,6 @@ def addone(id_ = None):
 
 	url = 'http://reuniversity.org/backend/php/addone.php'
 	req = requests.post(url=url,data=data)
-	print(req.text)
+	#print(req.text)
 	return req
 	

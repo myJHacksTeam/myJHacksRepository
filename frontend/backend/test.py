@@ -64,7 +64,7 @@ def undistort(image, coordinate_map, coefficient_map, width, height):
                              cv2.INTER_LINEAR)
     return destination
 
-def run():
+def run(debug = False):
 
     
     controller = Leap.Controller()
@@ -117,7 +117,8 @@ def run():
     baseline /= 17
     mult = 1.03
     print('Done!')
-    print('Baseline: {:,}, Threashhold: {}'.format(baseline,baseline*mult))
+    if debug:
+        print('Baseline: {:,}, Threashhold: {}'.format(baseline,baseline*mult))
     onspike = False
     while(True):
         frame = controller.frame()
@@ -142,7 +143,8 @@ def run():
                 previous_sum = current_sum
                 current_sum = sum([image.data[i] for i in range(0,image.width*image.height,50)])
                 # print('{:,}'.format(current_sum), '|', '{:,}'.format(current_sum - previous_sum))
-                print(abs(current_sum))#-previous_sum))
+                if debug:
+                    print(abs(current_sum))#-previous_sum))
                 if(abs(current_sum) >  mult * baseline) and previous_sum != 0 and not onspike:
                     print('Trashed!')
                     executor.submit(updater.addone, id_)
@@ -154,8 +156,9 @@ def run():
             # ba = bytearray(image.data)
             # print(sum(ba))
             counter += 1
-            cv2.imshow('Left Camera', undistorted_left)
-            cv2.imshow('Right Camera', undistorted_right)
+            if debug:
+                cv2.imshow('Left Camera', undistorted_left)
+                cv2.imshow('Right Camera', undistorted_right)
 
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 break
