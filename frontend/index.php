@@ -28,7 +28,7 @@
                 <td>Position</td>
                 <td>Recycling Bin</td>
                 <td>Items Recycled</td>
-                <td>Map</td>
+                <!--<td>Map</td>-->
             </tr>
             <?php
             include("backend/php/db_header.php");
