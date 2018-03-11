@@ -9,7 +9,7 @@ def update_current_weight(value = 0, id_ = None):
 	'value' : str(value),
 	'id' : str(id_)
 	}
-	url = 'http://10.205.255.121/backend/php/update.php'
+	url = 'http://reuniversity.org/backend/php/update.php'
 	return requests.post(url=url,data=data)
 
 
@@ -18,7 +18,7 @@ def start_new_collection(value = 0, id_ = None):
 	'value' : str(value),
 	'id' : str(id_)
 	}
-	url = 'http://10.205.255.121/backend/php/newcollection.php'
+	url = 'http://reuniversity.org/backend/php/newcollection.php'
 	return requests.post(url=url,data=data)
 
 
@@ -27,7 +27,7 @@ def clear_all_stats(id_ = None):	# DEBUG ONLYs
 	data = {
 	'id' : str(id_)
 	}
-	url = 'http://10.205.255.121/backend/php/clear.php'
+	url = 'http://reuniversity.org/backend/php/clear.php'
 	return requests.post(url=url,data=data)
 
 def init_bin(location, nickname):
@@ -42,13 +42,13 @@ def init_bin(location, nickname):
 	}
 	
 
-	initurl = 'http://10.205.255.121/backend/php/initbin.php'
+	initurl = 'http://reuniversity.org/backend/php/initbin.php'
 	initreq = requests.post(url=initurl,data=data)
 	print(initreq.text)
 	if initreq.text !='valid':
 		return False
 
-	idurl = 'http://10.205.255.121/backend/php/idbynickname.php'
+	idurl = 'http://reuniversity.org/backend/php/idbynickname.php'
 	idreq = requests.post(url=idurl,data=data)
 	print(idreq.text)
 	if idreq.text == 'Id not found':
@@ -68,7 +68,7 @@ def addone(id_ = None):
 	'id': str(id_)
 	}
 
-	url = 'http://10.205.255.121/backend/php/addone.php'
+	url = 'http://reuniversity.org/backend/php/addone.php'
 	req = requests.post(url=url,data=data)
 	print(req.text)
 	return req
