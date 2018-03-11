@@ -20,7 +20,7 @@ def start_new_collection(value = 0, id_ = None):
 	}
 	url = 'http://10.205.255.121/backend/php/newcollection.php'
 	return requests.post(url=url,data=data)
-	
+
 
 
 def clear_all_stats(id_ = None):	# DEBUG ONLYs
@@ -29,9 +29,9 @@ def clear_all_stats(id_ = None):	# DEBUG ONLYs
 	}
 	url = 'http://10.205.255.121/backend/php/clear.php'
 	return requests.post(url=url,data=data)
-	
+
 def init_bin(location = None, nickname=None):
-	 
+
 	r = requests.get('http://10.205.255.121/backend/php/max.php')
 	print(r.text)
 	id_ = r.text
@@ -52,3 +52,15 @@ def init_bin(location = None, nickname=None):
 	}
 	url = 'http://10.205.255.121/backend/php/initbin.php'
 	return requests.post(url=url,data=data)
+
+def add_one(id_ = None):
+	if not id_:
+		raise ValueError
+
+	data = {
+	'id': str(id_)
+	}
+
+	url = 'http://10.205.255.121/backend/php/addone.php'
+	return requests.post(url=url,data=data)
+	

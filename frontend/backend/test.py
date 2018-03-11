@@ -5,6 +5,8 @@ import numpy as np
 from PIL import Image
 import numpy as np
 from pprint import pprint
+from concurrent.futures import ThreadPoolExecutor
+
 def convert_distortion_maps(image):
 
     distortion_length = image.distortion_width * image.distortion_height
@@ -73,6 +75,9 @@ def run(controller = None):
     current_sum = 0
     baseline = 0
 
+    executor = ThreadPoolExecutor(max_workers = 1)
+
+
     # Set the baseline
     print('Calibrating, please wait...')
     while counter < 0:
@@ -129,7 +134,9 @@ def run(controller = None):
                 # print('{:,}'.format(current_sum), '|', '{:,}'.format(current_sum - previous_sum))
                 print(abs(current_sum-previous_sum))
                 if(abs(current_sum - previous_sum) > 1.25 * baseline) and previous_sum != 0 and not onspike:
-                    print('Trashed\n')
+                    
+                    executor.submit(updater.add_one, id_)
+
                     onspike = True
                 elif not abs(current_sum - previous_sum) > 1.25 * baseline:
                     onspike = False
