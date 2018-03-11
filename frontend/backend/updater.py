@@ -44,12 +44,14 @@ def init_bin(location = None, nickname=None):
 
 	initurl = 'http://10.205.255.121/backend/php/initbin.php'
 	initreq = requests.post(url=initurl,data=data)
+	if initreq.text !='valid':
+		return False
+		
 	idurl = 'http://10.205.255.121/backend/php/idbynickname.php'
 	idreq = requests.post(url=idurl,data=data)
 	if idreq.text == 'Id not found':
 		raise ValueError
-	if idreq.text !='valid':
-		return False
+	
 	id_ = idreq.text
 	with open('id.txt','w+') as f:
 		f.write(id_)
