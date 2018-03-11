@@ -48,6 +48,8 @@ def init_bin(location = None, nickname=None):
 	idreq = requests.post(url=idurl,data=data)
 	if idreq.text == 'Id not found':
 		raise ValueError
+	if idreq.text !='valid':
+		return False
 	id_ = idreq.text
 	with open('id.txt','w+') as f:
 		f.write(id_)

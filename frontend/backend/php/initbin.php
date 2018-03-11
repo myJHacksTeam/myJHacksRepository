@@ -7,5 +7,5 @@ if(!$result) {
 	echo $conn->error;
   die("Id not found");
 }
-echo "stuff";
+echo "valid";
 ?>
