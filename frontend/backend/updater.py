@@ -30,7 +30,7 @@ def clear_all_stats(id_ = None):	# DEBUG ONLYs
 	url = 'http://10.205.255.121/backend/php/clear.php'
 	return requests.post(url=url,data=data)
 
-def init_bin(location = None, nickname=None):
+def init_bin(location, nickname):
 
 	if not location:
 		location = str(time.time())
@@ -44,9 +44,10 @@ def init_bin(location = None, nickname=None):
 
 	initurl = 'http://10.205.255.121/backend/php/initbin.php'
 	initreq = requests.post(url=initurl,data=data)
+	print(initreq.text)
 	if initreq.text !='valid':
 		return False
-		
+
 	idurl = 'http://10.205.255.121/backend/php/idbynickname.php'
 	idreq = requests.post(url=idurl,data=data)
 	if idreq.text == 'Id not found':
