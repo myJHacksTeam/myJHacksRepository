@@ -61,7 +61,12 @@ def undistort(image, coordinate_map, coefficient_map, width, height):
                              cv2.INTER_LINEAR)
     return destination
 
-def run(controller):
+def run(controller = None):
+
+    if(not controller):
+        controller = Leap.Controller()
+        time.sleep(2)
+
     counter = -20
     maps_initialized = False
     previous_sum = 0
@@ -83,14 +88,14 @@ def run(controller):
             undistorted_left = undistort(image, left_coordinates, left_coefficients, 400, 400)
             undistorted_right = undistort(image, right_coordinates, right_coefficients, 400, 400)
 
-            
+
             baseline += sum([image.data[i] for i in range(0,image.width*image.height,30)])
             #print('Counter:', counter, '| FPS:', frame.current_frames_per_second)
             # ba = bytearray(image.data)
             # print(sum(ba))
             counter += 1
-            cv2.imshow('Left Camera', undistorted_left)
-            cv2.imshow('Right Camera', undistorted_right)
+            # cv2.imshow('Left Camera', undistorted_left)
+            # cv2.imshow('Right Camera', undistorted_right)
 
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 break
@@ -121,14 +126,16 @@ def run(controller):
             if counter % 1 == 0:
                 previous_sum = current_sum
                 current_sum = sum([image.data[i] for i in range(0,image.width*image.height,10)])
-                print('{:,}'.format(current_sum), '|', '{:,}'.format(current_sum - previous_sum))
+                # print('{:,}'.format(current_sum), '|', '{:,}'.format(current_sum - previous_sum))
+                if(abs(current_sum - previous_sum) > 1.5 * baseline):
+                    print('Trashed\n')
                 counter = 0
 
             # ba = bytearray(image.data)
             # print(sum(ba))
             counter += 1
-            cv2.imshow('Left Camera', undistorted_left)
-            cv2.imshow('Right Camera', undistorted_right)
+            # cv2.imshow('Left Camera', undistorted_left)
+            # cv2.imshow('Right Camera', undistorted_right)
 
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 break
@@ -142,6 +149,6 @@ def main():
         run(controller)
     except KeyboardInterrupt:
         sys.exit(0)
-        
+
 if __name__ == '__main__':
     main()
