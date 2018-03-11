@@ -1,6 +1,6 @@
 <?php
 require("db_header.php");
-$sql = "SELECT FIRST(id) FROM Trashcan WHERE nickname = ".$_POST("nickname");
+$sql = "SELECT FIRST(id) FROM Trashcan WHERE nickname = '".$_POST("nickname")."'";
 $result=$conn->query($sql);
 if(!$result) {
 	echo $conn->error;
