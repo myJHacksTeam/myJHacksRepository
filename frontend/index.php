@@ -4,7 +4,6 @@
     <link rel="stylesheet" type="text/css" href="stylesheet.css"  />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
     <link rel="icon" href="icon.png">
-    <meta http-equiv="refresh" content="5"/>
 </head>
 
 <body>
@@ -50,8 +49,8 @@
                   }
                   echo "<tr class=\"leaderboard__item\"><td>#" . $i . "</td>";
                   echo "<td>" . $row["nickname"] . "</td>";
-                  echo "<td>" . $row["current_value"] . "</td>";
-                  echo "<td><a class=\"map-link-row\" href=\"#\">Map</a></td></tr>";
+                  echo "<td>" . $row["current_value"] . "</td></tr>";
+                  //echo "<td><a class=\"map-link-row\" href=\"#\">Map</a></td></tr>";
                 }
               }
             }
@@ -66,5 +65,7 @@
             LOLWUT -->
         </table>
     </div>
+    <div id="map"></div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDB9WLFiXheQKCmVR6wPyu9Jx5TuAeAPP0&libraries=visualization&callback=initMap" async defer></script>
 </body>
 </html>
