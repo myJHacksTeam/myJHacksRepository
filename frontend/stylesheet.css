@@ -46,31 +46,51 @@ table {
   border-spacing: 0; }
 
 body {
-  font-family: 'Open Sans', sans-serif; }
+  font-family: 'Open Sans', sans-serif;
+  background: #64aacc;
+  color: white; }
 
-h1 {
-  font-weight: 900;
-  font-size: 100px; }
-
-.leaderboard-wrapper {
+.header {
+  margin: 10px 5px 70px;
+  text-align: center;
   display: flex;
   flex-flow: column; }
+  .header--title {
+    font-size: 70px;
+    color: #00284a; }
+  .header--separator {
+    width: 800px;
+    height: 1px;
+    margin: 30px auto 20px;
+    background-color: #353535; }
+  .header--tagline {
+    color: #353535;
+    font-size: 30px; }
 
-.leaderboard-title {
-  text-align: center;
-  padding: 20px 5px 50px; }
+.title--re {
+  color: maroon; }
+.title--weak {
+  color: white;
+  font-size: 50px; }
 
 .leaderboard {
   width: 800px;
   border-collapse: collapse;
   margin: auto; }
-
-.leaderboard td {
-  border: 1px solid black;
-  padding: 25px;
-  text-align: center;
-  color: white;
-  background-color: #4CAF50;
-  font-weight: 700; }
+  .leaderboard-wrapper {
+    display: flex;
+    flex-flow: column; }
+  .leaderboard-title {
+    text-align: center;
+    margin: 0 5px 10px;
+    font-size: 60px;
+    color: #00284a; }
+  .leaderboard td {
+    border: 1px solid black;
+    padding: 25px;
+    text-align: center;
+    color: white;
+    background-color: #4CAF50;
+    font-weight: 700; }
 
 /*# sourceMappingURL=stylesheet.css.map */

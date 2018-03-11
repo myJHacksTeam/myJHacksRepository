@@ -1,43 +1,86 @@
 @import 'reset';
 
+$primary: #00284a;
+
 body {
     font-family: 'Open Sans', sans-serif;
+    background: #64aacc;
+    color: white;
 }
 
 h1 {
-    font-weight: 900;
-    font-size: 100px;
+
 }
 
 h2, h3, h4, h5, h6 {
 
 }
 
-.leaderboard-wrapper {
+.header {
+    margin: 10px 5px 70px;
+    text-align: center;
     display: flex;
     flex-flow: column;
+
+
+    &--title {
+        font-size: 70px;
+        color: $primary;
+    }
+
+    &--separator {
+        width: 800px;
+        height: 1px;
+        margin: 30px auto 20px;
+        background-color: #353535;
+    }
+
+    &--tagline {
+        color: #353535;
+        font-size: 30px;
+
+    }
 }
 
-.leaderboard-title {
-    text-align: center;
-    padding: 20px 5px 50px;
+.title {
+    &--re {
+        color: maroon;
+    }
+
+    &--weak {
+        color: white;
+        font-size: 50px;
+    }
 }
+
 
 .leaderboard {
+    &-wrapper {
+        display: flex;
+        flex-flow: column;
+    }
+
+    &-title {
+        text-align: center;
+        margin: 0 5px 10px;
+        font-size: 60px;
+        color: $primary;
+    }
+
     width: 800px;
     border-collapse: collapse;
     margin: auto;
-}
 
- .leaderboard td {
-    border: 1px solid black;
-    padding: 25px;
-    text-align: center;
-    color: white;
-    background-color: #4CAF50;
-    font-weight: 700;
- }
+    & td {
+        border: 1px solid black;
+        padding: 25px;
+        text-align: center;
+        color: white;
+        background-color: #4CAF50;
+        font-weight: 700;
+    }
 
-.leaderboard__header td {
+    &__header td {
 
+    }
 }
