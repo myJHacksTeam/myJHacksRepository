@@ -7,5 +7,5 @@ if(!$result) {
   die("Id not found");
 }
 $row = $result->fetch_assoc();
-echo $row;//['id'];
+echo $row['id'];
 ?>
