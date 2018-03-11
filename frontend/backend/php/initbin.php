@@ -1,6 +1,6 @@
 <?php
 require("db_header.php");
-$sql = "INSERT INTO Trashcan (id, nickname, current_value, location, total_value) VALUES (". $_POST["id"] .",'".$_POST["nickname"]."',0,'".$_POST["location"]."',0)";
+$sql = "INSERT INTO Trashcan (nickname, current_value, location, total_value) VALUES (" . $_POST["nickname"]."',0,'".$_POST["location"]."',0)";
 echo $sql;
 $result = $conn->query($sql);
 if(!$result) {

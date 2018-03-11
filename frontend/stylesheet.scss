@@ -74,6 +74,7 @@ h2, h3, h4, h5, h6 {
     width: 800px;
     border-collapse: collapse;
     margin: auto;
+    margin-bottom: 40px;
 
     & td {
         border: 1px solid black;
@@ -82,13 +83,21 @@ h2, h3, h4, h5, h6 {
         color: white;
         background-color: $secondary;
         font-weight: 700;
+        vertical-align: middle;
+    }
+
+
+    &__header td {
+        background-color: $primary;
     }
 
     & tr:nth-child(even) td {
         background-color: rgba(74, 163, 206, 0.65)
     }
 
-    &__header td {
-        background-color: $primary;
+    & tr:nth-child(2) td {
+        background-color: #5eca49;
+        padding: 50px 25px;
+        font-size: 40px;
     }
 }

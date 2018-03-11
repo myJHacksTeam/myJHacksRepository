@@ -79,7 +79,8 @@ body {
 .leaderboard {
   width: 800px;
   border-collapse: collapse;
-  margin: auto; }
+  margin: auto;
+  margin-bottom: 40px; }
   .leaderboard-wrapper {
     display: flex;
     flex-flow: column; }
@@ -94,10 +95,15 @@ body {
     text-align: center;
     color: white;
     background-color: #4aa3ce;
-    font-weight: 700; }
-  .leaderboard tr:nth-child(even) td {
-    background-color: rgba(74, 163, 206, 0.65); }
+    font-weight: 700;
+    vertical-align: middle; }
   .leaderboard__header td {
     background-color: #00284a; }
+  .leaderboard tr:nth-child(even) td {
+    background-color: rgba(74, 163, 206, 0.65); }
+  .leaderboard tr:nth-child(2) td {
+    background-color: #5eca49;
+    padding: 50px 25px;
+    font-size: 40px; }
 
 /*# sourceMappingURL=stylesheet.css.map */
