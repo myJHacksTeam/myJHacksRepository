@@ -50,6 +50,7 @@ def init_bin(location, nickname):
 
 	idurl = 'http://10.205.255.121/backend/php/idbynickname.php'
 	idreq = requests.post(url=idurl,data=data)
+	print(idreq.text)
 	if idreq.text == 'Id not found':
 		raise ValueError
 	
