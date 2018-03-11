@@ -77,7 +77,9 @@ def run():
     baseline = 0
 
     executor = ThreadPoolExecutor(max_workers = 1)
-
+    id_ = ''
+    with open('id.txt','r+') as f:
+        id_ = f.readlines()
 
     # Set the baseline
     print('Calibrating, please wait...')
@@ -136,9 +138,8 @@ def run():
                 # print('{:,}'.format(current_sum), '|', '{:,}'.format(current_sum - previous_sum))
                 print(abs(current_sum-previous_sum))
                 if(abs(current_sum - previous_sum) > 1.25 * baseline) and previous_sum != 0 and not onspike:
-                    
+                    print('Trashed!')
                     executor.submit(updater.add_one, id_)
-
                     onspike = True
                 elif not abs(current_sum - previous_sum) > 1.25 * baseline:
                     onspike = False
