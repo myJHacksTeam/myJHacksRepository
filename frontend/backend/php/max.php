@@ -1,10 +1,11 @@
 <?php
 require("db_header.php");
-$sql = "UPDATE Trashcan SET current_value = " . $_POST["value"] . " WHERE id = ". $_POST["id"];
-echo $sql;
+$sql = "SELECT MAX(id) FROM Trashcan";
 $result=$conn->query($sql);
 if(!$result) {
 	echo $conn->error;
   die("Id not found");
 }
+//$row = $result->fetch_assoc();
+echo $result; //$row["id"];
 ?>

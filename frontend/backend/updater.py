@@ -1,6 +1,6 @@
 
 import requests
-
+import time
 
 
 
@@ -30,11 +30,25 @@ def clear_all_stats(id_ = None):	# DEBUG ONLYs
 	url = 'http://10.205.255.121/backend/php/clear.php'
 	return requests.post(url=url,data=data)
 	
-def init_bin(id_):
-	if not id_:
+def init_bin(location = None, nickname=None):
+	 
+	r = requests.get('http://10.205.255.121/backend/php/max.php')
+	print(r.text)
+	id_ = r.text
+	if id_ == 'Id not found':
 		raise ValueError
+
+	id_ = int(id_)+1
+
+
+	if not location:
+		location = str(time.time())
+	if not nickname:
+		nickname = str(time.time())
 	data = {
-	'id' : str(id_)
+	'id' : str(id_),
+	'location' : location,
+	'nickname' : nickname
 	}
 	url = 'http://10.205.255.121/backend/php/initbin.php'
 	return requests.post(url=url,data=data)
