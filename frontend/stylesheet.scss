@@ -1,0 +1,43 @@
+@import 'reset';
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+    font-weight: 900;
+    font-size: 100px;
+}
+
+h2, h3, h4, h5, h6 {
+
+}
+
+.leaderboard-wrapper {
+    display: flex;
+    flex-flow: column;
+}
+
+.leaderboard-title {
+    text-align: center;
+    padding: 20px 5px 50px;
+}
+
+.leaderboard {
+    width: 800px;
+    border-collapse: collapse;
+    margin: auto;
+}
+
+ .leaderboard td {
+    border: 1px solid black;
+    padding: 25px;
+    text-align: center;
+    color: white;
+    background-color: #4CAF50;
+    font-weight: 700;
+ }
+
+.leaderboard__header td {
+
+}
