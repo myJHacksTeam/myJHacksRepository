@@ -30,7 +30,7 @@ def clear_all_stats(id_ = None):	# DEBUG ONLYs
 	url = '10.0.2.255/clear.php'
 	requests.post(url=url,data=data)
 	
-def init_bin(id):
+def init_bin(id_):
 	if not id_:
 		raise ValueError
 	data = {
