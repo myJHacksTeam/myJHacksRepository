@@ -6,7 +6,7 @@ from PIL import Image
 import numpy as np
 from pprint import pprint
 from concurrent.futures import ThreadPoolExecutor
-
+import updater
 def convert_distortion_maps(image):
 
     distortion_length = image.distortion_width * image.distortion_height
