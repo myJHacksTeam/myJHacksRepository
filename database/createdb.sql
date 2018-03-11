@@ -4,7 +4,7 @@ DROP TABLE IF EXISTS City;
 DROP TABLE IF EXISTS STATE;
 DROP TABLE IF EXISTS Trashcan;
 
-CREATE TABLE Trashcan(id INT NOT NULL,
+CREATE TABLE Trashcan(id INT NOT NULL AUTO_INCREMENT,
 	nickname varchar(255) UNIQUE,
 	current_value REAL,
 	location varchar(255),
