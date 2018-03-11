@@ -36,7 +36,7 @@
               echo "<tr class=\"leaderboard__item\"><td colspan=\"4\">Failed to connect to database</td></tr>";
             }
             else {
-              $sql = "SELECT * FROM Trashcan ORDER BY total_value";
+              $sql = "SELECT * FROM Trashcan ORDER BY current_value";
               $result = $conn->query($sql);
               if(!$result) {
                 echo "<tr class=\"leaderboard__item\"><td colspan=\"4\">The table is empty</td></tr>";
