@@ -36,5 +36,5 @@ def loop():
             num_contents += 1
             time.sleep(DELAY_PER_PIECE)
             update_current_weight(num_contents, serialNumber)
-        if(GPIO.input(IR_restart)):
+        if(not GPIO.input(IR_restart)):
             start_new_collection(serialNumber)
